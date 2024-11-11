@@ -1,0 +1,55 @@
+<!-- <c-row ngPreserveWhitespaces>
+  <c-col xs="12">
+    <c-card class="mb-4">
+      <c-card-header>
+        <strong>Cadastro de despesas</strong>
+      </c-card-header>
+      <c-card-body>
+        <form cForm>
+          <div class="mb-3">
+            <label cLabel for="ano">Ano</label>
+            <input cFormControl id="Ano" type="number" />
+          </div>
+          <div class="mb-3">
+            <label cLabel for="receita">Receita</label>
+            <input cFormControl id="receita" type="number" [(ngModel)]="receitaValue" step="0.01" />
+          </div>
+          <div class="mb-3">
+            <label cLabel for="despesas">Despesas</label>
+            <input cFormControl id="despesas" type="number" [(ngModel)]="despesasValue" step="0.01" />
+          </div>
+        </form>
+
+      </c-card-body>
+    </c-card>
+  </c-col>
+</c-row> -->
+<c-col xs="12">
+  <c-card class="mb-4">
+    <c-card-header>
+      <strong>Cadastro de clientes</strong>
+    </c-card-header>
+
+    <c-card-body>
+      <form cForm class="row g-3">
+        <c-col xs="12">
+          <label cLabel for="ano">Ano</label>
+          <input cFormControl id="Ano" type="number" />
+        </c-col>
+        <c-col xs="12">
+          <label cLabel for="receita">Receita</label>
+          <input cFormControl id="receita" type="number" />
+        </c-col>
+        <c-col xs="12">
+          <label cLabel for="despesas">Despesas</label>
+          <input cFormControl id="despesas" type="number">
+        </c-col>
+        <c-col xs="12">
+          <button cButton type="submit" class="btnSalvar">Salvar</button>
+          <button cButton type="button" class="btnCancelar">Cancelar</button>
+        </c-col>
+      </form>
+    </c-card-body>
+  </c-card>
+
+</c-col>
