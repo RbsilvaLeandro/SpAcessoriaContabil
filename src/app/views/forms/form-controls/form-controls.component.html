@@ -17,19 +17,23 @@
             </select>
           </div>
         </c-col>
-        <c-col xs="12">
+        <c-col xs="12" sm="3">
           <label cLabel for="ano">Ano</label>
           <input cFormControl id="Ano" type="number"
             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
             type="number" maxlength="4" />
         </c-col>
-        <c-col xs="12">
+        <c-col xs="12" sm="3">
           <label cLabel for="receita">Receita</label>
           <input cFormControl id="receita" type="number" />
         </c-col>
-        <c-col xs="12">
+        <c-col xs="12" sm="3">
           <label cLabel for="despesas">Despesas</label>
           <input cFormControl id="despesas" type="number">
+        </c-col>
+        <c-col xs="12" sm="3">
+          <label cLabel for="impostos">Impostos</label>
+          <input cFormControl id="impostos" type="number">
         </c-col>
         <c-col xs="12">
           <button cButton type="submit" class="btnSalvar">Salvar</button>
