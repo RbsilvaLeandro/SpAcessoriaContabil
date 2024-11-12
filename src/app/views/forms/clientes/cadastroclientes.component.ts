@@ -22,11 +22,10 @@ import {
   FormLabelDirective,
   ButtonDirective,
   TableDirective,
-  ToasterService,
   ToasterComponent,
   ToasterPlacement,
 } from '@coreui/angular';
-import { JsonPipe, NgClass, NgStyle, SlicePipe } from '@angular/common';
+import { NgClass, NgStyle, SlicePipe } from '@angular/common';
 import { AppToastComponent } from '../../notifications/toasters/toast-simple/toast.component';
 import { filter, Observable } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
@@ -44,9 +43,9 @@ export enum Colors {
 }
 
 @Component({
-  selector: 'app-layout',
-  templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss'],
+  selector: 'app-clientes',
+  templateUrl: './cadastroclientes.component.html',
+  styleUrls: ['./cadastroclientes.component.scss'],
   standalone: true,
   imports: [
     RowComponent,
@@ -68,7 +67,7 @@ export enum Colors {
     CommonModule,
   ],
 })
-export class LayoutComponent implements OnInit {
+export class CadClientesComponent implements OnInit {
   public clientes: any[] = [];
   public clienteForm!: FormGroup;
   positions = Object.values(ToasterPlacement);
@@ -126,11 +125,11 @@ export class LayoutComponent implements OnInit {
         this.clientes = data;
       },
       (error) => {
-        // this.addToast(
-        //   'Erro',
-        //   'Houve uma falha ao carregar a lista de clientes',
-        //   'danger'
-        // );
+        this.addToast(
+          'Erro',
+          'Houve uma falha ao carregar a lista de clientes',
+          'danger'
+        );
       }
     );
   }

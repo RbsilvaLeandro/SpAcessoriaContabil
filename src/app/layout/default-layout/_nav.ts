@@ -8,12 +8,12 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Cad Clientes',
-    url: '/forms/layout',
+    url: '/forms/clientes',
     iconComponent: { name: 'cil-user' },
   },
   {
     name: 'Cad Informações',
-    url: '/forms/form-control',
+    url: '/forms/informacoes',
     iconComponent: { name: 'cil-calculator' },
   },
 ];

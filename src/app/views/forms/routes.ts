@@ -13,19 +13,21 @@ export const routes: Routes = [
         pathMatch: 'full',
       },
       {
-        path: 'form-control',
+        path: 'informacoes',
         loadComponent: () =>
-          import('./form-controls/form-controls.component').then(
-            (m) => m.FormControlsComponent
+          import('./informacoes/cadastroInformacoes.component').then(
+            (m) => m.CadInformacoesComponent
           ),
         data: {
           title: 'Form Control',
         },
       },
       {
-        path: 'layout',
+        path: 'clientes',
         loadComponent: () =>
-          import('./layout/layout.component').then((m) => m.LayoutComponent),
+          import('./clientes/cadastroclientes.component').then(
+            (m) => m.CadClientesComponent
+          ),
         data: {
           title: 'Cadastro',
         },

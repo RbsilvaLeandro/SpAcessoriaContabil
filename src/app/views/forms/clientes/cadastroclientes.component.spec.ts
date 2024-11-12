@@ -1,29 +1,40 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { CardModule, GridModule } from '@coreui/angular';
+import {
+  ButtonModule,
+  CardModule,
+  FormModule,
+  GridModule,
+} from '@coreui/angular';
 import { IconSetService } from '@coreui/icons-angular';
 import { iconSubset } from '../../../icons/icon-subset';
-import { SelectComponent } from './select.component';
+import { CadClientesComponent } from './cadastroclientes.component';
 
-describe('SelectComponent', () => {
-  let component: SelectComponent;
-  let fixture: ComponentFixture<SelectComponent>;
+describe('LayoutComponent', () => {
+  let component: CadClientesComponent;
+  let fixture: ComponentFixture<CadClientesComponent>;
   let iconSetService: IconSetService;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [CardModule, GridModule, RouterTestingModule, SelectComponent],
-    providers: [IconSetService]
-})
-      .compileComponents();
+      imports: [
+        FormModule,
+        CardModule,
+        GridModule,
+        ButtonModule,
+        RouterTestingModule,
+        CadClientesComponent,
+      ],
+      providers: [IconSetService],
+    }).compileComponents();
   });
 
   beforeEach(() => {
     iconSetService = TestBed.inject(IconSetService);
     iconSetService.icons = { ...iconSubset };
 
-    fixture = TestBed.createComponent(SelectComponent);
+    fixture = TestBed.createComponent(CadClientesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

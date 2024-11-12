@@ -33,7 +33,6 @@ import { IconDirective } from '@coreui/icons-angular';
 
 import { WidgetsDropdownComponent } from '../widgets/widgets-dropdown/widgets-dropdown.component';
 import { DashboardChartsData, IChartProps } from './dashboard-charts-data';
-import { SelectComponent } from '../forms/select/select.component';
 
 interface IUser {
   name: string;
@@ -74,7 +73,6 @@ interface IUser {
     CardHeaderComponent,
     TableDirective,
     AvatarComponent,
-    SelectComponent,
   ],
 })
 export class DashboardComponent implements OnInit {

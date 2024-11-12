@@ -13,8 +13,6 @@ import {
   ToastHeaderComponent,
   ToastBodyComponent,
   ToastCloseDirective,
-  ProgressBarDirective,
-  ProgressComponent,
 } from '@coreui/angular';
 
 @Component({
@@ -28,13 +26,7 @@ import {
     },
   ],
   standalone: true,
-  imports: [
-    ToastHeaderComponent,
-    ToastBodyComponent,
-    ToastCloseDirective,
-    ProgressBarDirective,
-    ProgressComponent,
-  ],
+  imports: [ToastHeaderComponent, ToastBodyComponent, ToastCloseDirective],
 })
 export class AppToastComponent extends ToastComponent {
   @Input() closeButton = true;

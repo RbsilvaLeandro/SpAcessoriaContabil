@@ -12,9 +12,9 @@ import {
 } from '@coreui/angular';
 
 @Component({
-  selector: 'app-form-controls',
-  templateUrl: './form-controls.component.html',
-  styleUrls: ['./form-controls.component.scss'],
+  selector: 'app-informacoes',
+  templateUrl: './cadastroInformacoes.component.html',
+  styleUrls: ['./cadastroInformacoes.component.scss'],
   standalone: true,
   imports: [
     ColComponent,
@@ -27,7 +27,7 @@ import {
     ButtonDirective,
   ],
 })
-export class FormControlsComponent {
+export class CadInformacoesComponent {
   public favoriteColor = '#26ab3c';
   receitaValue: number = 0.0;
   despesasValue: number = 0.0;

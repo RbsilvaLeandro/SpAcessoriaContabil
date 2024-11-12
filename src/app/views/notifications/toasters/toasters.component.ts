@@ -1,7 +1,11 @@
 import { JsonPipe, NgClass, NgStyle, SlicePipe } from '@angular/common';
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { ReactiveFormsModule, UntypedFormControl, UntypedFormGroup } from '@angular/forms';
+import {
+  ReactiveFormsModule,
+  UntypedFormControl,
+  UntypedFormGroup,
+} from '@angular/forms';
 import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
@@ -26,7 +30,7 @@ import {
   ToastComponent,
   ToasterComponent,
   ToasterPlacement,
-  ToastHeaderComponent
+  ToastHeaderComponent,
 } from '@coreui/angular';
 import { AppToastComponent } from './toast-simple/toast.component';
 
@@ -47,10 +51,37 @@ export enum Colors {
   templateUrl: './toasters.component.html',
   styleUrls: ['./toasters.component.scss'],
   standalone: true,
-  imports: [RowComponent, ColComponent, ToasterComponent, NgClass, TextColorDirective, CardComponent, CardHeaderComponent, CardBodyComponent, ContainerComponent, ReactiveFormsModule, FormDirective, FormCheckComponent, FormCheckInputDirective, FormCheckLabelDirective, InputGroupComponent, InputGroupTextDirective, FormControlDirective, FormSelectDirective, ButtonDirective, NgStyle, ToastComponent, ToastHeaderComponent, ToastBodyComponent, AppToastComponent, JsonPipe, SlicePipe, TextColorDirective]
+  imports: [
+    RowComponent,
+    ColComponent,
+    ToasterComponent,
+    NgClass,
+    TextColorDirective,
+    CardComponent,
+    CardHeaderComponent,
+    CardBodyComponent,
+    ContainerComponent,
+    ReactiveFormsModule,
+    FormDirective,
+    FormCheckComponent,
+    FormCheckInputDirective,
+    FormCheckLabelDirective,
+    InputGroupComponent,
+    InputGroupTextDirective,
+    FormControlDirective,
+    FormSelectDirective,
+    ButtonDirective,
+    NgStyle,
+    ToastComponent,
+    ToastHeaderComponent,
+    ToastBodyComponent,
+    AppToastComponent,
+    JsonPipe,
+    SlicePipe,
+    TextColorDirective,
+  ],
 })
 export class ToastersComponent implements OnInit {
-
   positions = Object.values(ToasterPlacement);
   position = ToasterPlacement.TopEnd;
   positionStatic = ToasterPlacement.Static;
@@ -61,22 +92,25 @@ export class ToastersComponent implements OnInit {
 
   toasterForm = new UntypedFormGroup({
     autohide: new UntypedFormControl(this.autohide),
-    delay: new UntypedFormControl({ value: this.delay, disabled: !this.autohide }),
+    delay: new UntypedFormControl({
+      value: this.delay,
+      disabled: !this.autohide,
+    }),
     position: new UntypedFormControl(this.position),
     fade: new UntypedFormControl({ value: true, disabled: false }),
     closeButton: new UntypedFormControl(true),
-    color: new UntypedFormControl('')
+    color: new UntypedFormControl(''),
   });
 
   formChanges: Observable<any> = this.toasterForm.valueChanges.pipe(
     takeUntilDestroyed(),
-    filter(e => e.autohide !== this.autohide)
+    filter((e) => e.autohide !== this.autohide)
   );
 
   @ViewChildren(ToasterComponent) viewChildren!: QueryList<ToasterComponent>;
 
   ngOnInit(): void {
-    this.formChanges.subscribe(e => {
+    this.formChanges.subscribe((e) => {
       this.autohide = e.autohide;
       this.position = e.position;
       this.fade = e.fade;
@@ -88,10 +122,14 @@ export class ToastersComponent implements OnInit {
 
   addToast() {
     const formValues = this.toasterForm.value;
-    const toasterPosition = this.viewChildren.filter(item => item.placement === this.toasterForm.value.position);
+    const toasterPosition = this.viewChildren.filter(
+      (item) => item.placement === this.toasterForm.value.position
+    );
     toasterPosition.forEach((item) => {
       const title = `Toast ${formValues.color} ${formValues.position}`;
+
       const { ...props } = { ...formValues, title };
+      console.log(props);
       const componentRef = item.addToast(AppToastComponent, props, {});
       componentRef.instance['closeButton'] = props.closeButton;
     });
