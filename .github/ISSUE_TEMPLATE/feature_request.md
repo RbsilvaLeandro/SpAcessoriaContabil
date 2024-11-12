@@ -1,10 +1,9 @@
 ---
 name: Feature request
-about: Suggest an idea for a new feature in CoreUI Free Angular Admin Template.
-title: ''
+about: Suggest an idea for a new feature in SpAcessoriaContábil.
+title: ""
 labels: feature
-assignees: ''
-
+assignees: ""
 ---
 
 Before opening:

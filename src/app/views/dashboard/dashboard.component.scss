@@ -5,3 +5,38 @@
     }
   }
 }
+
+/* Estilos para um select fechado e com rolagem */
+select.custom-select {
+  width: 100%;
+  height: 50px; /* Define a altura do select */
+  overflow-y: auto; /* Habilita rolagem vertical quando necessário */
+  border-radius: 5px;
+  border: 1px solid #dbdfe6;
+}
+
+/* Define a altura máxima para o menu suspenso */
+select.custom-select option {
+  height: 25px; /* Altere a altura conforme necessário */
+}
+
+.buttonSearch{
+  background-color: blue;
+  color: white;
+  border-radius: 5px;
+  border: blue($color: #000000);
+  height: 40px;
+  width: 100px;
+  margin-top: 5px;
+  margin-left: -23px;
+}
+
+.container {
+  display: flex;
+  justify-content: flex-start;
+  margin: 10px;
+}
+
+.space{
+  margin-top: 5px;
+}

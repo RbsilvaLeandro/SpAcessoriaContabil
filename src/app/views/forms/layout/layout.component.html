@@ -1,21 +1,51 @@
+@for (pos of positions | slice : 1; track pos) {
+<c-toaster [ngClass]="'p-3'" position="fixed" placement="{{pos}}" />
+}
+
 <c-col xs="12">
   <c-card class="mb-4">
     <c-card-header>
       <strong>Cadastro de clientes</strong>
     </c-card-header>
-
     <c-card-body>
-      <form cForm class="row g-3">
+      <form [formGroup]="clienteForm" (ngSubmit)="onSubmit()" class="row g-3">
         <c-col xs="12">
-          <label cLabel for="inputAddress">Razão Social</label>
-          <input cFormControl id="inputAddress" />
+          <label cLabel for="inputRazao">Razão Social</label>
+          <input cFormControl id="inputRazao" formControlName="razaoSocial" />
         </c-col>
         <c-col xs="12">
           <button cButton type="submit" class="btnSalvar">Salvar</button>
-          <button cButton type="button" class="btnCancelar">Cancelar</button>
+          <button cButton type="button" class="btnCancelar" (click)="cancelar()">Cancelar</button>
         </c-col>
       </form>
     </c-card-body>
   </c-card>
+</c-col>
 
+<c-col>
+  <c-row ngPreserveWhitespaces>
+    <c-col xs="12">
+      <c-card class="mb-4">
+        <c-card-header>
+          <strong>Clientes</strong>
+        </c-card-header>
+        <c-card-body>
+          <table [hover]="true" cTable>
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Razão Social</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let cliente of clientes; let i = index">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ cliente.razaoSocial }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </c-card-body>
+      </c-card>
+    </c-col>
+  </c-row>
 </c-col>
